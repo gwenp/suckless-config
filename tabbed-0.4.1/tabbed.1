@@ -1,0 +1,58 @@
+.TH TABBED 1 tabbed\-VERSION
+.SH NAME
+tabbed \- generic tabbed interface
+.SH SYNOPSIS
+.B tabbed
+.RB [ \-d ]
+.RB [ \-h ]
+.RB [ \-s ]
+.RB [ \-v ]
+.IR [ command ... ]
+.SH DESCRIPTION
+.B tabbed
+is a simple tabbed container for applications which support XEmbed. Tabbed
+will then run the provides command with the xid of tabbed as appended
+argument. (See EXAMPLES.) The automatic spawning of the command can be
+disabled by providing the -s parameter. If no command is provided
+tabbed will just print its xid and run no command.
+.SH OPTIONS
+.TP
+.B \-d
+detaches tabbed from the terminal and prints its XID to stdout.
+.TP
+.B \-h
+will print the usage of tabbed.
+.TP
+.B \-s
+will disable automatic spawning of the command.
+.TP
+.B \-v
+prints version information to stderr, then exits.
+.SH USAGE
+.TP
+.B Ctrl\-Shift\-Return
+open new tab
+.TP
+.B Ctrl\-Shift\-h
+previous tab
+.TP
+.B Ctrl\-Shift\-l
+next tab
+.TP
+.B Ctrl\-Tab
+toggle between tabs
+.TP
+.B Ctrl\-q
+close tab
+.TP
+.B Ctrl\-[0..9]
+jumps to nth tab
+.SH EXAMPLES
+$ tabbed surf -e
+.TP
+$ tabbed urxvt -embed
+.TP
+$ tabbed xterm -into
+.TP
+$ $(tabbed -d >/tmp/tabbed.xid); urxvt -embed $(</tmp/tabbed.xid);
+

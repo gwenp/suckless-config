@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head> 
+	<title>suckless.org software that sucks less</title>
+	<link rel="stylesheet" type="text/css" href="/pub/style.css">
+	<meta charset="utf-8"> 
+</head> 
+<body>
+	<div id="header">
+		<a href="/">suckless.org</a> <span id="headerSubtitle">software that sucks less</span>
+	</div>
+
+	<div id="menu">
+		<span class="left">
+		<a class="thisSite" href="http://suckless.org">home</a>
+		<a href="http://dwm.suckless.org">dwm</a>
+		<a href="http://st.suckless.org">st</a>
+		<a href="http://sta.li">stali</a>
+		<a href="http://surf.suckless.org">surf</a>
+		<a href="http://tools.suckless.org">tools</a>
+		<a href="http://man.suckless.org">man</a>
+		</span>
+		<span class="right">
+			<a href="http://dl.suckless.org">download</a>
+			<a href="http://hg.suckless.org">source</a>
+			<a href="http://eyjafjallajoekull.com">art</a>
+		</span>
+	</div>
+
+	<div id="content">
+	<div id="nav">
+<ul>
+<li><a href="/" class="thisPage">news</a></li>
+<li><a href="/community">community</a></li>
+<li><a href="/donations">donations</a></li>
+<li><a href="/faq">faq</a></li>
+<li><a href="/hacking">hacking</a></li>
+<li><a href="/other_projects">other projects</a></li>
+<li><a href="/people/">people/</a></li>
+<li><a href="/philosophy">philosophy</a></li>
+<li><a href="/project_ideas">project ideas</a></li>
+<li><a href="/rocks">rocks</a></li>
+<li><a href="/sucks">sucks</a></li>
+<li><a href="/wiki">wiki</a></li>
+</ul>
+	</div>
+
+	<div id="main">
+
+
+<p>Home of <a href="http://dwm.suckless.org">dwm</a>, <a href="http://tools.suckless.org/dmenu">dmenu</a> and other quality software with a focus on simplicity, clarity, and frugality.</p>
+
+<p>Read more about our <a href="/philosophy">philosophy</a> and join us on the <a href="/community">mailing list</a>.</p>
+
+<h1>News</h1>
+
+<h2>2012-07-30</h2>
+
+<p><a href="https://github.com/suckless">https://github.com/suckless</a> is a github mirror of <a href="http://hg.suckless.org/">http://hg.suckless.org/</a> updated with a daily cronjob. Please contribute by posting patches to the <a href="http://suckless.org/community">mailing list</a>.</p>
+
+<h2>2012-07-14</h2>
+
+<p><a href="http://surf.suckless.org">surf 0.5</a> released: <a href="http://dl.suckless.org/surf/surf-0.5.tar.gz">download</a></p>
+
+<h2>2012-07-08</h2>
+
+<p><a href="http://tools.suckless.org/tabbed">tabbed 0.4</a> released: <a href="http://dl.suckless.org/tools/tabbed-0.4.tar.gz">download</a></p>
+
+<h2>2012-02-16</h2>
+
+<p><a href="http://st.suckless.org">st 0.2.1</a> released: <a href="http://dl.suckless.org/st/st-0.2.1.tar.gz">download</a></p>
+
+<h2>2012-02-11</h2>
+
+<p><a href="http://tools.suckless.org/slock">slock 1.0</a> released: <a href="http://dl.suckless.org/tools/slock-1.0.tar.gz">download</a></p>
+
+<h2>2012-01-08</h2>
+
+<p><a href="http://tools.suckless.org/dmenu">dmenu 4.5</a> released: <a href="http://dl.suckless.org/tools/dmenu-4.5.tar.gz">download</a></p>
+
+<h2>2011-12-19</h2>
+
+<p><a href="http://dwm.suckless.org">dwm 6.0</a> released: <a href="http://dl.suckless.org/dwm/dwm-6.0.tar.gz">download</a></p>
+
+<h2>2011-06-04</h2>
+
+<p><a href="http://tools.suckless.org/lsw">lsw 0.2</a> released: <a href="http://dl.suckless.org/tools/lsw-0.2.tar.gz">download</a></p>
+
+<h2>2011-05-14</h2>
+
+<p>Anselm gave a talk about <strong>The &lsquo;suckless.org&rsquo; universe</strong> at the <a href="http://www.linuxtag.org">LinuxTag 2011</a>
+conference in Berlin.</p>
+
+<h2>2011-01-31</h2>
+
+<p><a href="http://tools.suckless.org/ii">ii 1.6</a> released (regression fix): <a href="http://dl.suckless.org/tools/ii-1.6.tar.gz">download</a></p>
+
+<h2>2010-06-08</h2>
+
+<p><a href="http://surf.suckless.org">surf 0.4.1</a> released: <a href="http://dl.suckless.org/surf/surf-0.4.1.tar.gz">download</a></p>
+
+<h2>2010-06-04</h2>
+
+<p><a href="http://tools.suckless.org/9base">9base-6</a> released: <a href="http://dl.suckless.org/tools/9base-6.tar.gz">download</a></p>
+
+<h2>2010-05-31</h2>
+
+<p><a href="http://tools.suckless.org/tabbed">tabbed 0.3</a> released: <a href="http://dl.suckless.org/tools/tabbed-0.3.tar.gz">download</a></p>
+
+<h2>2010-05-25</h2>
+
+<p><a href="http://tools.suckless.org/sic">sic 1.1</a> released: <a href="http://dl.suckless.org/tools/sic-1.1.tar.gz">download</a></p>
+
+<h2>2010-03-28</h2>
+
+<p>We learned today that the previous wmii maintainer, who wasn&rsquo;t actively
+involved since 2007, Denis Grelich, <a href="http://fsing.fs.uni-sb.de/drupal/node/169">died on 12 March
+2010</a>. We offer him our
+condolences and thank him for his work. Rest in peace.</p>
+
+<h2>2010-03-07</h2>
+
+<p>We applied as a mentoring organisation for GSoC 2010. See our <a href="/project_ideas">project ideas for GSoC 2010</a> page for further details.</p>
+
+<h2>2010-02-13</h2>
+
+<p>Some of us will visit <a href="http://chemnitzer.linux-tage.de/2010/">CLT2010</a>. Anselm will give a <a href="http://chemnitzer.linux-tage.de/2010/vortraege/detail.html?idx=308">talk</a> about <a href="http://sta.li">stali</a> on the second day of CLT2010 at 5pm.</p>
+
+<h2>2009-12-28</h2>
+
+<p>There was a small community meeting in Berlin! Thanks to all attenders.</p>
+
+<h2>2009-11-27</h2>
+
+<p><a href="http://wmi.suckless.org/">wmi-11</a> released: <a href="http://dl.suckless.org/wmi/wmi-11.tar.gz">download</a></p>
+
+<h2>2009-10-30</h2>
+
+<p><a href="http://tools.suckless.org/tabbed">tabbed 0.2</a> released: <a href="http://dl.suckless.org/tools/tabbed-0.2.tar.gz">download</a></p>
+
+<p><a href="http://surf.suckless.org/">surf 0.3</a> released: <a href="http://dl.suckless.org/surf/surf-0.3.tar.gz">download</a></p>
+
+<h2>2009-10-17</h2>
+
+<p><a href="http://surf.suckless.org/">surf 0.2</a> released: <a href="http://dl.suckless.org/surf/surf-0.2.tar.gz">download</a></p>
+
+<h2>2008-08-02</h2>
+
+<p><a href="http://tools.suckless.org/wmname">wmname 0.1</a> released: <a href="http://dl.suckless.org/tools/wmname-0.1.tar.gz">download</a></p>
+
+<h2>2008-07-29</h2>
+
+<p><a href="http://tools.suckless.org/sselp">sselp 0.2</a> released: <a href="http://dl.suckless.org/tools/sselp-0.2.tar.gz">download</a></p>
+
+
+	</div>
+
+	</div>
+
+	<div id="footer">
+	<span class="right">
+	&copy; 2006-2012 suckless.org community | <a href="http://garbe.us/Contact">Impressum</a>
+	</span>
+	</div>
+</body>
+</html>

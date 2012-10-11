@@ -1,0 +1,110 @@
+diff -r 71388899ac09 config.def.h
+--- a/config.def.h	Tue Jun 08 09:06:10 2010 +0200
++++ b/config.def.h	Wed Sep 28 14:15:32 2011 +0100
+@@ -5,6 +5,7 @@
+ static char *stylefile      = ".surf/style.css";
+ static char *scriptfile     = ".surf/script.js";
+ static char *cookiefile     = ".surf/cookies.txt";
++static char *downdir        = "/tmp";
+ static time_t sessiontime   = 3600;
+ #define NOBACKGROUND 0
+ 
+diff -r 71388899ac09 surf.c
+--- a/surf.c	Tue Jun 08 09:06:10 2010 +0200
++++ b/surf.c	Wed Sep 28 14:15:32 2011 +0100
+@@ -74,7 +74,9 @@
+ static void destroyclient(Client *c);
+ static void destroywin(GtkWidget* w, Client *c);
+ static void die(char *str);
++static void download(WebKitDownload *o, GParamSpec *pspec, Client *c);
+ static void drawindicator(Client *c);
++static void evalscript(Client *c, char *script);
+ static gboolean exposeindicator(GtkWidget *w, GdkEventExpose *e, Client *c);
+ static void find(Client *c, const Arg *arg);
+ static const char *getatom(Client *c, int a);
+@@ -239,6 +241,21 @@
+ }
+ 
+ void
++download(WebKitDownload *o, GParamSpec *pspec, Client *c) {
++	WebKitDownloadStatus status;
++	char script[2048];
++
++	status = webkit_download_get_status(o);
++	if(status == WEBKIT_DOWNLOAD_STATUS_STARTED || status == WEBKIT_DOWNLOAD_STATUS_CREATED) {
++		snprintf(script, 2048, "u(%d, %d, %d)",
++		         (gint)webkit_download_get_current_size(o),
++		         (gint)webkit_download_get_total_size(o),
++		         (gint)(webkit_download_get_progress(o) * 100));
++		evalscript(c, script);
++	}
++}
++
++void
+ drawindicator(Client *c) {
+ 	gint width;
+ 	const char *uri;
+@@ -261,6 +278,17 @@
+ 	g_object_unref(gc);
+ }
+ 
++void
++evalscript(Client *c, char *script) {
++	JSValueRef exception = NULL;
++	WebKitWebFrame *frame = webkit_web_view_get_main_frame(c->view);
++	JSContextRef js = webkit_web_frame_get_global_context(frame);
++	JSStringRef jsscript = JSStringCreateWithUTF8CString(script);
++
++	JSEvaluateScript(js, jsscript, JSContextGetGlobalObject(js), NULL, 0, &exception)
++;
++}
++
+ gboolean
+ exposeindicator(GtkWidget *w, GdkEventExpose *e, Client *c) {
+ 	drawindicator(c);
+@@ -328,12 +356,40 @@
+ 
+ gboolean
+ initdownload(WebKitWebView *view, WebKitDownload *o, Client *c) {
+-	Arg arg;
++	gchar *uri, *path;
++	const gchar *filename;
++	Client *n;
++	char html[1024];
+ 
+-	updatewinid(c);
+-	arg = (Arg)DOWNLOAD((char *)webkit_download_get_uri(o));
+-	spawn(c, &arg);
+-	return FALSE;
++	n = newclient();
++	filename = webkit_download_get_suggested_filename(o);
++
++	path = g_build_filename(downdir, filename, NULL);
++	uri = g_filename_to_uri(path, NULL, NULL);
++	webkit_download_set_destination_uri(o, uri);
++	g_free(path);
++	g_free(uri);
++ 
++	snprintf(html, 1024,
++	         "<html><head><script>" \
++	         "function u(c, t, p) {" \
++	         "  document.getElementById('c').innerHTML = c;" \
++	         "  document.getElementById('t').innerHTML = t;" \
++	         "  document.getElementById('p').innerHTML = p;}" \
++	         "</script></head><body><p>Downloading %s</p>" \
++	         "<p><span id='c'>0</span> / <span id='t'>0</span> " \
++	         "(<span id='p'>0</span>%%)</p></body></html>",
++	         filename);
++	webkit_web_view_load_string(n->view, html, NULL, NULL, NULL);
++
++	g_signal_connect(o, "notify::progress", G_CALLBACK(download), n);
++	g_signal_connect(o, "notify::status", G_CALLBACK(download), n);
++	webkit_download_start(o);
++	n->title = g_strdup_printf("Downloading %s", filename);
++	n->progress = 0;
++	update(n);
++
++	return TRUE;
+ }
+ 
+ gboolean

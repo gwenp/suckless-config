@@ -1,0 +1,37 @@
+vt emulation
+------------
+
+* implement BCE right
+* color definition in CSI
+	* implement CSI parsing
+* make the keypad keys really work
+	* kf0 .. kf44
+	* kend, kel, kent, kfnd, ked, kext
+	* kNXT, kPRV
+	* ka1, ka3, kb2
+* add arrow keys handling
+
+code & interface
+----------------
+
+* clean selection code
+* clean and complete terminfo entry
+* add border around cursor, when it could be hard to read
+	* white border when not selected would suffice
+	* + definition in config.h
+* add fallback fonts for the restricted xft code
+
+bugs
+----
+
+* handle XOpenMI() errors
+* fix shift up/down (shift selection in emacs)
+* fix selection paste for xatom STRING
+* fix umlaut handling in settitle
+* fix rows and column definition in fixed geometry
+
+misc
+----
+
+    $ grep -nE 'XXX|TODO' st.c
+
